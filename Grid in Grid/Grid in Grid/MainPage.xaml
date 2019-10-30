@@ -8,9 +8,9 @@
 
 	<ContentPage.Content>
 		<StackLayout>
-			<Label Text="Issue tritt nur auf wenn die erste Column des Grids im Landscape Platz hat und im Portrait keinen Platz." />
-			<Label Text="{Binding Source={Reference grid0}, Path=Width, StringFormat='Breite des Grids in Spalte 1: {0}'}" />
-			<Label Text="{Binding Source={Reference box0}, Path=Width, StringFormat='Breite der Box in Spalte 1: {0}'}" />
+			<Label Text="Issue occurs when one of the Columns in a Grid is set to a Width of 0, after it already had a bigger Width. In this case this is achieved by having a column of the length Star and another column that is (programatically) set to be bigger than the width of the page in portrait. Thus, when rotating the device from Landscape to portrait, the red box should vanish, but it retains its size and remains visible over the other box." />
+			<Label Text="{Binding Source={Reference grid0}, Path=Width, StringFormat='Width of the grid in column 1: {0}'}" />
+			<Label Text="{Binding Source={Reference box0}, Path=Width, StringFormat='Width of the box in column 1: {0}'}" />
 			<Grid x:Name="topGrid" VerticalOptions="FillAndExpand" >
 				<Grid Grid.Column="1" IsClippedToBounds="True" >
 					<BoxView BackgroundColor="Black" VerticalOptions="Fill" HorizontalOptions="Fill" />
