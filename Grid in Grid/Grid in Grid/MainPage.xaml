@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Grid_in_Grid.MainPage">
+
+	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="Issue tritt nur auf wenn die erste Column des Grids im Landscape Platz hat und im Portrait keinen Platz." />
+			<Label Text="{Binding Source={Reference grid0}, Path=Width, StringFormat='Breite des Grids in Spalte 1: {0}'}" />
+			<Label Text="{Binding Source={Reference box0}, Path=Width, StringFormat='Breite der Box in Spalte 1: {0}'}" />
+			<Grid x:Name="topGrid" VerticalOptions="FillAndExpand" >
+				<Grid Grid.Column="1" IsClippedToBounds="True" >
+					<BoxView BackgroundColor="Black" VerticalOptions="Fill" HorizontalOptions="Fill" />
+				</Grid>
+				<Grid x:Name="grid0" Grid.Column="0" >
+					<BoxView x:Name="box0" BackgroundColor="Red" VerticalOptions="Fill" HorizontalOptions="Fill"/>
+				</Grid>
+			</Grid>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
